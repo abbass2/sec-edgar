@@ -343,5 +343,5 @@ class IndexFilings(AbstractFiling):
                     path = os.path.join(directory, formatted_dir,
                                         formatted_file)
                     inputs.append((link, path))
-            loop = asyncio.get_event_loop()
-            loop.run_until_complete(self.client.wait_for_download_async(inputs))
+            #loop = asyncio.get_event_loop()
+            asyncio.create_task(self.client.wait_for_download_async(inputs))
